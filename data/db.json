@@ -1,0 +1,28 @@
+{
+  "user": [
+    {
+      "id": "1",
+      "rollNumber": 1,
+      "firstName": "Gopal",
+      "lastName": "Varma",
+      "adharCardNumber": "1234",
+      "contactNumber": "+91 99"
+    },
+    {
+      "id": "2",
+      "rollNumber": 2,
+      "firstName": "Sham",
+      "lastName": "Varma",
+      "adharCardNumber": "1234",
+      "contactNumber": "+91 99"
+    },
+    {
+      "id": "4",
+      "rollNumber": 0,
+      "contactNumber": "98765456789",
+      "adharCardNumber": "34567890-098765",
+      "firstName": "Akshay",
+      "lastName": "Yadhav"
+    }
+  ]
+}
