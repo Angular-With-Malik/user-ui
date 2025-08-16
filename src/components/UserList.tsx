@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import { _deleteUser, _getAllUser } from '../services/employeeService'
 import { AxiosResponse } from 'axios'
-import { User } from '../model/user'
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 import VisibilityIcon from '@mui/icons-material/Visibility';
+import { UserDialogModel } from '../model/userDialog';
 import UserDialog from './UserDialog';
+import { User } from '../model/user';
 
 const UserList = (props: {
     setCurrentUser: Function, flag: boolean,
@@ -34,10 +35,23 @@ const UserList = (props: {
         })
     }
 
-    const [openDialog, setOpenDialog] = useState<boolean>(false)
+    const [openDialog, setOpenDialog] = useState<UserDialogModel>({
+        currentUser: {
+            id: '',
+            rollNumber: 0,
+            contactNumber: '',
+            adharCardNumber: '',
+            firstName: '',
+            lastName: ''
+        },
+        flag: false
+    })
 
-    const openUserDialog = () => {
-        setOpenDialog(true)
+    const openUserDialog = (user: User) => {
+        setOpenDialog({
+            currentUser: user,
+            flag: true
+        })
     }
 
     return (
@@ -82,7 +96,7 @@ const UserList = (props: {
                                     {/* <a className='text-secondary'>
                                         <i className='bi bi-eye-fill'></i>
                                     </a> */}
-                                    <a onClick={() => openUserDialog()}>
+                                    <a onClick={() => openUserDialog(user)}>
                                         <VisibilityIcon color='primary' />
                                     </a>
                                 </td>
@@ -91,8 +105,8 @@ const UserList = (props: {
                     }
                 </tbody>
             </table>
-            <UserDialog openDialog={openDialog} 
-                setOpenDialog={(value:boolean) => setOpenDialog(value)} />
+            <UserDialog openDialog={openDialog}
+                setOpenDialog={(value: UserDialogModel) => setOpenDialog(value)} />
         </div>
     )
 }

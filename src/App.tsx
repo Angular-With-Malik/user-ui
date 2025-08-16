@@ -15,7 +15,8 @@ const App = () => {
     contactNumber: '',
     adharCardNumber: '',
     firstName: '',
-    lastName: ''
+    lastName: '',
+    carNumber: ''
   })
 
   return (

@@ -70,7 +70,8 @@ const UserForm = (props: {
             contactNumber: '',
             adharCardNumber: '',
             firstName: '',
-            lastName: ''
+            lastName: '',
+            carNumber: ''
         })
     }
 
